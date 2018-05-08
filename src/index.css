@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,700,900');
+
+.outer {
+	display: table;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 3px solid green;
+}
+
+.middle {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.inner {
+	margin-left: auto;
+	margin-right: auto;
+	width: 400px;
+}
+
+
+.my-name {
+	font-family: Avantgarde, "TeX Gyre Adventor", "URW Gothic L", sans-serif;
+	font-size: 3.0em;
+	line-height: 1px;
+	border: 10px;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.my-life-button {
+	background-color: #FFF;
+	width: 85%;
+	color: #000;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	height: 52px;
+	border: .2em solid;
+	opacity: 0.6;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	box-shadow: 1px 1px 30px 2px  #888;
+}
+
+.my-life-button:hover {
+	opacity: 0.7;
+}
+
+div .my-life {
+	width: 50%;
+	float: left;
+}	
+
+.my-resume-button {
+	background-color: #FFF;
+	width: 85%;
+	color: #000;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;
+	height: 52px;
+	border: .2em solid;
+	opacity: 0.6;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+	box-shadow: 1px 1px 30px 2px  #888;
+}
+
+.my-resume-button:hover {
+	opacity: 0.7;
+}
+
+div .my-resume {
+	width: 50%;
+	float: right;
+}

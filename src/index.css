@@ -15,10 +15,13 @@
 
 .inner {
 	margin-left: auto;
-	margin-right: auto;
+	padding-right: 100px;
 	width: 400px;
 }
 
+.middle-name {
+	padding-left: 62px;
+}
 
 .my-name {
 	font-family: Avantgarde, "TeX Gyre Adventor", "URW Gothic L", sans-serif;
@@ -27,6 +30,7 @@
 	border: 10px;
 	text-transform: uppercase;
 	font-weight: bold;
+	color: #e0efa7;
 }
 
 .my-life-button {
@@ -56,6 +60,7 @@
 div .my-life {
 	width: 50%;
 	float: left;
+	text-align: center;
 }	
 
 .my-resume-button {
@@ -85,4 +90,43 @@ div .my-life {
 div .my-resume {
 	width: 50%;
 	float: right;
+	text-align: center;
+}
+
+.fab, .fas {
+	padding: 15px;
+	font-size: 20px;
+	width: 20px;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 50%;
+	color: #a82a2a;
+	transition: .5s ease-in-out;
+	background: #fff;
+}
+
+.fa-facebook {
+	float: left;
+	margin-left: 15px
+}
+
+.fa-twitter {
+}
+
+.fa-blogger-b {
+	float: right;
+	margin-right: 15px;
+}
+
+.fa-github {
+	float: left;
+	margin-left: 15px;
+}
+
+.fa-linkedin-in {
+}
+
+.fa-file-pdf {
+	float: right;
+	margin-right: 15px;
 }

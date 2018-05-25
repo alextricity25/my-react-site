@@ -20,17 +20,18 @@
 }
 
 .middle-name {
-	padding-left: 62px;
 }
 
 .my-name {
 	font-family: Avantgarde, "TeX Gyre Adventor", "URW Gothic L", sans-serif;
-	font-size: 3.0em;
+	font-size: 2.7em;
 	line-height: 1px;
 	border: 10px;
 	text-transform: uppercase;
 	font-weight: bold;
-	color: #e0efa7;
+	color: #d5bb4d;
+	text-shadow: 0px 0px 5px #265baa;
+	transition: .5s ease-in-out;
 }
 
 .my-life-button {
@@ -51,6 +52,7 @@
 	font-weight: bold;
 	text-transform: uppercase;
 	box-shadow: 1px 1px 30px 2px  #888;
+	border-radius: 10px;
 }
 
 .my-life-button:hover {
@@ -58,7 +60,6 @@
 }
 
 div .my-life {
-	width: 50%;
 	float: left;
 	text-align: center;
 }	
@@ -81,6 +82,7 @@ div .my-life {
 	font-weight: bold;
 	text-transform: uppercase;
 	box-shadow: 1px 1px 30px 2px  #888;
+	border-radius: 10px;
 }
 
 .my-resume-button:hover {
@@ -100,33 +102,26 @@ div .my-resume {
 	text-align: center;
 	text-decoration: none;
 	border-radius: 50%;
-	color: #a82a2a;
+	color: #fff;
 	transition: .5s ease-in-out;
+	background: #265baa;
+	margin: 6px;
+}
+
+.fab:before, .fas:before {
+	transition: .5s ease-in-out;
+	transform: scale(0);
+	z-index: -1;
+	top: 0;
+	left: 0;
+}
+.fab:hover:before, .fas:hover:before {
+	transition: .5s ease-in-out;
+	transform: scale(.9);
+}
+
+.fab:hover, .fas:hover {
 	background: #fff;
+	color: #000;
 }
 
-.fa-facebook {
-	float: left;
-	margin-left: 15px
-}
-
-.fa-twitter {
-}
-
-.fa-blogger-b {
-	float: right;
-	margin-right: 15px;
-}
-
-.fa-github {
-	float: left;
-	margin-left: 15px;
-}
-
-.fa-linkedin-in {
-}
-
-.fa-file-pdf {
-	float: right;
-	margin-right: 15px;
-}

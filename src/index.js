@@ -6,12 +6,9 @@ class NamePlate extends React.Component {
 	render() {
 		return (
 			<div className='inner'>
-			  <p className='my-name'>Miguel</p>
-			  <p className='my-name middle-name'>Alex Cantu</p>
-			  <Button buttonName='my-life' text='My Life' />
-			  <Button buttonName='my-resume' text='My Resume' />
-			  <SocialMediaButtonLife />
-			  <SocialMediaButtonResume />
+			  <p id='firstname' className='my-name'>Miguel</p>
+			  <p className='my-name'><span className="middle-name" id='middlename'>Alex</span><span id='lastname' className='last-name'> Cantu</span></p>
+			  <SocialMediaButtonGroup />
 			</div>
 		       );
 	}
@@ -29,39 +26,41 @@ class CenterStage extends React.Component {
 	}
 }
 
-class Button extends React.Component {
+class SocialMediaButtonGroup extends React.Component {
 	render() {
 		return (
-			<div className={this.props.buttonName}>
-			  <button className={this.props.buttonName + "-button"}>{this.props.text}</button>
+			<div id='socialmediabuttons' className='my-life'>
+			  <SocialMediaButton className="fab fa-facebook" name="Facebook"/>
+			  <SocialMediaButton className="fab fa-twitter" name="Twitter"/>
+			  <SocialMediaButton className="fab fa-blogger-b" name="Blog"/>
+			  <SocialMediaButton className="fab fa-github" name="Github"/>
+			  <SocialMediaButton className="fab fa-linkedin-in" name="LinkedIn"/>
+			  <SocialMediaButton className="fas fa-file-pdf" name="Resume"/>
 			</div>
 		       );
 	}
 }
 
-class SocialMediaButtonLife extends React.Component {
-	render() {
-		return (
-			<div className='my-life'>
-			  <a href="#" className="fab fa-facebook"></a>
-			  <a href="#" className="fab fa-twitter"></a>
-			  <a href="#" className="fab fa-blogger-b"></a>
-			</div>
-		       );
+class SocialMediaButton extends React.Component {
+	handleMouseOver(e, socialMediaName) {
+		document.getElementById('firstname').style.opacity = 0;
+		document.getElementById('middlename').innerHTML = "Alex's ";
+		document.getElementById('lastname').innerHTML = this.props.name;
 	}
-}
-
-class SocialMediaButtonResume extends React.Component {
+	handleMouseOut(e) {
+		document.getElementById('firstname').style.opacity = 1;
+		document.getElementById('middlename').innerHTML = "Alex ";
+		document.getElementById('lastname').style.opacity = 1;
+		document.getElementById('lastname').innerHTML = "Cantu";
+	}
 	render() {
 		return (
-			<div className='my-resume'>
-			  <a href="#" className="fab fa-github"></a>
-			  <a href="#" className="fab fa-linkedin-in"></a>
-			  <a href="#" className="fas fa-file-pdf"></a>
-			</div>
-		       );
+			<a onMouseOver={this.handleMouseOver.bind(this)} onMouseOut={this.handleMouseOut.bind(this)} href='#' className={this.props.className}></a>
+		       )
 	}
 }
 
 
 ReactDOM.render(<CenterStage />, document.getElementById('root'));
+
+

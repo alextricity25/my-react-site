@@ -17,11 +17,7 @@ class NamePlate extends React.Component {
 class CenterStage extends React.Component {
 	render() {
 		return (
-			<div className="outer">
-			  <div className='middle'>
-			    <NamePlate />
-			  </div>
-			</div>
+			<NamePlate />
 		       );
 	}
 }

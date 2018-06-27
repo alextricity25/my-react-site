@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
 import './index.css';
+
 
 class NamePlate extends React.Component {
 	render() {
@@ -26,11 +28,11 @@ class SocialMediaButtonGroup extends React.Component {
 	render() {
 		return (
 			<div id='socialmediabuttons' className='my-life'>
-			  <SocialMediaButton className="fab fa-facebook" name="Facebook"/>
-			  <SocialMediaButton className="fab fa-twitter" name="Twitter"/>
-			  <SocialMediaButton className="fab fa-blogger-b" name="Blog"/>
-			  <SocialMediaButton className="fab fa-github" name="Github"/>
-			  <SocialMediaButton className="fab fa-linkedin-in" name="LinkedIn"/>
+			  <SocialMediaButton className="fab fa-blogger-b" name="Blog" link="32bc3082196279d5aac3affe5665a8f6.blogspot.com"/>
+			  <SocialMediaButton className="fab fa-twitter" name="Twitter" link="https://twitter.com/MiguelAlexCantu"/>
+			  <SocialMediaButton className="fab fa-google-plus-g" name="Google +" link="https://plus.google.com/u/0/111967829169666843012"/>
+			  <SocialMediaButton className="fab fa-github" name="Github" link="https://github.com/alextricity25"/>
+			  <SocialMediaButton className="fab fa-linkedin-in" name="LinkedIn" link="https://www.linkedin.com/in/miguel-alex-cantu-57440856/"/>
 			  <SocialMediaButton className="fas fa-file-pdf" name="Resume"/>
 			</div>
 		       );
@@ -51,12 +53,10 @@ class SocialMediaButton extends React.Component {
 	}
 	render() {
 		return (
-			<a onMouseOver={this.handleMouseOver.bind(this)} onMouseOut={this.handleMouseOut.bind(this)} href='#' className={this.props.className}></a>
+			<a onMouseOver={this.handleMouseOver.bind(this)} onMouseOut={this.handleMouseOut.bind(this)} href={this.props.link} className={this.props.className}></a>
 		       )
 	}
 }
 
 
 ReactDOM.render(<CenterStage />, document.getElementById('root'));
-
-

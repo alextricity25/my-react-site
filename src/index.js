@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'
 import './index.css';
+import pdfResume from './resume.pdf';
 
 
 class NamePlate extends React.Component {
@@ -33,7 +33,7 @@ class SocialMediaButtonGroup extends React.Component {
 			  <SocialMediaButton className="fab fa-google-plus-g" name="Google +" link="https://plus.google.com/u/0/111967829169666843012"/>
 			  <SocialMediaButton className="fab fa-github" name="Github" link="https://github.com/alextricity25"/>
 			  <SocialMediaButton className="fab fa-linkedin-in" name="LinkedIn" link="https://www.linkedin.com/in/miguel-alex-cantu-57440856/"/>
-			  <SocialMediaButton className="fas fa-file-pdf" name="Resume"/>
+			  <SocialMediaButton className="fas fa-file-pdf" name="Resume" link={pdfResume}/>
 			</div>
 		       );
 	}

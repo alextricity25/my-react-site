@@ -41,7 +41,7 @@ class SocialMediaButtonGroup extends React.Component {
 			  <SocialMediaButton
 			    className="fab fa-blogger-b"
 			    name="Blog"
-			    link="blog.miguelalexcantu.com"/>
+			    link="http://blog.miguelalexcantu.com"/>
 			  <SocialMediaButton
 			    className="fab fa-twitter"
 			    name="Twitter"

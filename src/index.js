@@ -1,7 +1,85 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import './ridearranger.css';
 import pdfResume from './resume.pdf';
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+
+
+class RideArrangerHome extends React.Component {
+	render() {
+		return (
+			<div className='ridearrangerbase'>
+			  <div className='formscontainer'>
+			      <PeopleListForm 
+			       selectboxtitle="Drivers:"/>
+			      <PeopleListForm
+			       selectboxtitle="Passengers:"/>
+			  </div>
+			  <div className='buttoncontainer'>
+			    <button className='arrangebuttonstyle'>ARRANGERATE!</button>
+			  </div>
+			</div>
+		       );
+	}
+}
+
+
+class PeopleListForm extends React.Component {
+	constructor(props) {
+		super(props);
+		this.myList = ["Alex", "Amy"];
+		this.state = {
+			people: this.myList.map((name) => 
+						 <option>{name}</option>
+				),
+			inputValue: "Some Value"};
+
+		this.handleChange = this.handleChange.bind(this);
+	}
+
+	handleAddDriverButtonClick(e) {
+		this.myList.push(this.state.inputValue);
+		this.setState({
+			people: this.myList.map((name) =>
+						 <option>{name}</option>
+						)
+		});
+	}
+
+	handleChange(e) {
+		this.setState({
+			people: this.myList.map((name) =>
+						 <option>{name}</option>
+						),
+			inputValue: e.target.value
+		});
+	}
+	render() {
+		return (
+			<div className='driversformcontainer'>
+			  <div className='inputfieldcontainer'>
+			    <form>
+			      <input className='inputfieldstyle' type="text" value={this.state.inputValue} onChange={this.handleChange}/>
+    			      <button onClick={this.handleAddDriverButtonClick.bind(this)} type="button">
+    			      Add Person >>>
+    			      </button>
+			    </form>
+			  </div>
+			  <div className='listcontainer'>
+			    <div className='selectboxtitlecontainer'>
+			      {this.props.selectboxtitle}
+			    </div>
+			    <div className='selectboxcontainer'>
+			      <select className='selectboxstyle' multiple>
+			        {this.state.people}
+			      </select>
+			    </div>
+			  </div>
+			</div>
+		       );
+	}
+}
 
 
 class NamePlate extends React.Component {
@@ -26,10 +104,19 @@ class NamePlate extends React.Component {
 	}
 }
 
-class CenterStage extends React.Component {
+class Router extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
 	render() {
 		return (
-			<NamePlate />
+			<BrowserRouter>
+			  <Switch>
+			    <Route exact path="/" component={NamePlate} />
+			    <Route path="/ridearranger" component={RideArrangerHome} />
+			  </Switch>
+			</BrowserRouter>
 		       );
 	}
 }
@@ -92,4 +179,4 @@ class SocialMediaButton extends React.Component {
 }
 
 
-ReactDOM.render(<CenterStage />, document.getElementById('root'));
+ReactDOM.render(<Router/>, document.getElementById('root'));

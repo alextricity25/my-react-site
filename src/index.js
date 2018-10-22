@@ -12,15 +12,51 @@ class RideArrangerHome extends React.Component {
 			<div className='ridearrangerbase'>
 			  <div className='formscontainer'>
 			      <PeopleListForm 
-			       selectboxtitle="Drivers:"/>
+			       selectboxtitle="Drivers"/>
 			      <PeopleListForm
-			       selectboxtitle="Passengers:"/>
+			       selectboxtitle="Passengers"/>
 			  </div>
 			  <div className='buttoncontainer'>
-			    <button className='arrangebuttonstyle'>ARRANGERATE!</button>
+			    <ArrangeButton />
 			  </div>
 			</div>
 		       );
+	}
+}
+
+class ArrangeButton extends React.Component {
+	constructor(props) {
+		super(props);
+		this.handleArrangeButtonClick = this.handleArrangeButtonClick.bind(this);
+	}
+
+	handleArrangeButtonClick(e) {
+		var passengers = Array.from(document.getElementById("Passengersselectbox").options).map((option) => {
+			return "+" + option.text
+		});
+		var drivers = Array.from(document.getElementById("Driversselectbox").options).map((option) => {
+			return ">" + option.text
+		});
+		fetch("http://35.226.83.8:8080/rides/", {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				text: "#rides " + drivers.join(" ") + passengers.join(" ")
+			})
+		}).then(results => {
+			return results.json();
+		}).then(data => {
+			console.log(data);
+		})
+	}
+
+	render() {
+		return (
+			<button onClick={this.handleArrangeButtonClick} className='arrangebuttonstyle'>ARRANGERATE!</button>
+		       )
 	}
 }
 
@@ -36,6 +72,7 @@ class PeopleListForm extends React.Component {
 			inputValue: "Some Value"};
 
 		this.handleChange = this.handleChange.bind(this);
+		this.handleRemoveButtonClick = this.handleRemoveButtonClick.bind(this);
 	}
 
 	handleAddDriverButtonClick(e) {
@@ -55,6 +92,37 @@ class PeopleListForm extends React.Component {
 			inputValue: e.target.value
 		});
 	}
+
+	handleRemoveButtonClick(e) {
+		// How do I know what option is selected?
+		var removeList = this.getSelectValues(document.getElementById(this.props.selectboxtitle + 'selectbox'));
+		for(var i = 0; i < removeList.length; i++) {
+			for(var k = this.myList.length - 1; k >= 0; k--) {
+				if(removeList[i] == this.myList[k]) {
+					this.myList.splice(k, 1);
+				}
+			}
+		}
+		this.setState({
+			people: this.myList.map((name) =>
+						 <option>{name}</option>
+						)
+		});
+
+	}
+
+	getSelectValues(select) {
+		var result = [];
+		var options = select && select.options;
+		var opt;
+		for(var i=0, iLen=options.length; i<iLen; i++) {
+			opt = options[i];
+			if (opt.selected) {
+				result.push(opt.value || opt.text);
+			}
+		}
+		return result;
+	}
 	render() {
 		return (
 			<div className='driversformcontainer'>
@@ -71,9 +139,12 @@ class PeopleListForm extends React.Component {
 			      {this.props.selectboxtitle}
 			    </div>
 			    <div className='selectboxcontainer'>
-			      <select className='selectboxstyle' multiple>
+			      <select id={this.props.selectboxtitle + 'selectbox'} className='selectboxstyle' multiple>
 			        {this.state.people}
 			      </select>
+			    </div>
+			    <div className='removebuttoncontainer'>
+			      <button onClick={this.handleRemoveButtonClick}>Remove</button>
 			    </div>
 			  </div>
 			</div>

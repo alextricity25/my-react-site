@@ -30,6 +30,18 @@ class ArrangeButton extends React.Component {
 		this.handleArrangeButtonClick = this.handleArrangeButtonClick.bind(this);
 	}
 
+	getTreeOutput(data) {
+		var outputString = "";
+		Object.keys(data).forEach(function(key) {
+			console.log(key, data[key]);
+			outputString += String(key) + "\n";
+			for(var i = 0; i < data[key].length; i++){
+				outputString += "    " + String(data[key][i]) + "\n";
+			}
+		});
+		return outputString;
+	}
+
 	handleArrangeButtonClick(e) {
 		var passengers = Array.from(document.getElementById("Passengersselectbox").options).map((option) => {
 			return "+" + option.text
@@ -50,6 +62,8 @@ class ArrangeButton extends React.Component {
 			return results.json();
 		}).then(data => {
 			console.log(data);
+			alert(this.getTreeOutput(data['same']));
+			//alert(JSON.stringify(data['same'], null, 2));
 		})
 	}
 
@@ -76,7 +90,17 @@ class PeopleListForm extends React.Component {
 	}
 
 	handleAddDriverButtonClick(e) {
-		this.myList.push(this.state.inputValue);
+		// If inputValue has commas, then run through the comma
+		// delimited list and add each token to the list
+		if(this.state.inputValue.includes(',')){
+			var listOfNames = this.state.inputValue.split(",");
+			for(var i = 0; i < listOfNames.length; i++){
+				this.myList.push(listOfNames[i].trim());
+			}
+		} else {
+			this.myList.push(this.state.inputValue);
+		}
+		// Set the state to the new list
 		this.setState({
 			people: this.myList.map((name) =>
 						 <option>{name}</option>
@@ -123,6 +147,8 @@ class PeopleListForm extends React.Component {
 		}
 		return result;
 	}
+
+
 	render() {
 		return (
 			<div className='driversformcontainer'>

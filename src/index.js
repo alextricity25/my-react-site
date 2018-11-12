@@ -83,10 +83,20 @@ class PeopleListForm extends React.Component {
 			people: this.myList.map((name) => 
 						 <option>{name}</option>
 				),
-			inputValue: "Some Value"};
+			inputValue: "Name..."};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleRemoveButtonClick = this.handleRemoveButtonClick.bind(this);
+		this.handleInputOnClick = this.handleInputOnClick.bind(this);
+	}
+
+	handleInputOnClick(e) {
+		// When input box is clicked, inputValue is cleared and
+		// font styling is set to normal
+		document.getElementById("InputField" + this.props.selectboxtitle).className = "inputfieldstyle";
+                this.setState({
+			inputValue: ""
+		});
 	}
 
 	handleAddDriverButtonClick(e) {
@@ -153,12 +163,12 @@ class PeopleListForm extends React.Component {
 		return (
 			<div className='driversformcontainer'>
 			  <div className='inputfieldcontainer'>
-			    <form>
-			      <input className='inputfieldstyle' type="text" value={this.state.inputValue} onChange={this.handleChange}/>
-    			      <button onClick={this.handleAddDriverButtonClick.bind(this)} type="button">
-    			      Add Person >>>
-    			      </button>
-			    </form>
+			    <div className='formcontainer'>
+  			      <form>
+  			        <input id={"InputField" + this.props.selectboxtitle} onClick={this.handleInputOnClick} className='inputfieldstyleplaceholder' type="text" value={this.state.inputValue} onChange={this.handleChange}/>
+      			        <a className="fas fa-plus" onClick={this.handleAddDriverButtonClick.bind(this)} type="button"></a>
+  			      </form>
+			    </div>
 			  </div>
 			  <div className='listcontainer'>
 			    <div className='selectboxtitlecontainer'>

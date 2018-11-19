@@ -89,6 +89,7 @@
 .selectboxcontainer {
 	height: 75%;
 	width: 100%;
+	overflow: scroll;
 }
 
 .selectboxstyle {
@@ -97,6 +98,8 @@
 	color: white;
 	background-color: #0b3766;
 	border: none;
+	padding: 0px;
+	margin: 0px;
 }
 
 .arrangebutton {
@@ -123,11 +126,16 @@
 	color: white;
 }
 
-.fa-plus {
-	border-radius: 0px;
+.addbutton {
 	background-color: #0b3766;
-	border-color: white;
-	padding: 11px;
+	padding: 8px;
 	color: white;
 	width: 10%;
+	font-weight: bolder;
+	text-align: center;
+	display: inline;
+	border: 2px red;
+	cursor: pointer;
 }
+
+

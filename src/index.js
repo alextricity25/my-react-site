@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import './ridearranger.css';
 import pdfResume from './resume.pdf';
-import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { RideArrangerHome } from './ridearranger';
 
 class NamePlate extends React.Component {
@@ -29,9 +29,6 @@ class NamePlate extends React.Component {
 }
 
 class Router extends React.Component {
-	constructor(props) {
-		super(props);
-	}
 
 	render() {
 		return (

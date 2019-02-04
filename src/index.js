@@ -55,9 +55,9 @@ class SocialMediaButtonGroup extends React.Component {
 			    name="Twitter"
 			    link="https://twitter.com/MiguelAlexCantu"/>
 			  <SocialMediaButton
-			    className="fab fa-google-plus-g"
-			    name="Google +"
-			    link="https://plus.google.com/u/0/111967829169666843012"/>
+			    className="fab fa-instagram"
+			    name="Instagram"
+			    link="https://www.instagram.com/miguelalexcantu/"/>
 			  <SocialMediaButton
 			    className="fab fa-github"
 			    name="Github"

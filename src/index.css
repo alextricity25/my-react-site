@@ -66,3 +66,42 @@
 	background: #fff;
 	color: #000;
 }
+
+.currently_reading_parent {
+	position: fixed;
+	width: 200px;
+	height: 75px;
+	background: #76a7cce8;
+	right: 0%;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	border-radius: 25px;
+}
+
+.currently-reading-text {
+	color: white;
+	text-align: center;
+	font-size: .7em;
+	margin-top: -5px;
+	font-family: Avantgarde, "TeX Gyre Adventor", "URW Gothic L", sans-serif;
+}
+
+.currently-reading-header-text {
+	color: white;
+	text-align: center;
+	font-size: medium;
+	margin-top: 0px;
+	margin-bottom: 5px;
+	font-family: Avantgarde, "TeX Gyre Adventor", "URW Gothic L", sans-serif;
+}
+
+.currently-reading-footer {
+	color: white;
+	text-align: center;
+	font-size: .4em;
+	margin-top: 0px;
+	margin-bottom: 5px;
+	position: absolute;
+	bottom: 0%;
+	right: 58px;
+	font-family: Avantgarde, "TeX Gyre Adventor", "URW Gothic L", sans-serif;
+}

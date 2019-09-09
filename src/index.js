@@ -81,7 +81,7 @@ class CurrentlyReading extends React.Component {
 	render(){
 		return (
 			<div className='currently_reading_parent'>
-			  <p className='currently-reading-header-text'> Currently Reading:</p>
+			  <p className='currently-reading-header-text'><a href="http://blog.miguelalexcantu.com/2019/08/my-personal-reading-goals.html">Currently Reading:</a></p>
 			  <p className='currently-reading-text'> {this.state.currentBook} </p>
 			  <p className='currently-reading-footer'> Data from <a href="https://www.goodreads.com/user/show/81229333-miguel-cantu">Goodreads.com</a> </p>
 			</div>
